@@ -55,10 +55,6 @@ ft_1
 
 
 
-
-
-
-
 # To understand the pattern of physical activity by grade and gender,
 # 1) aggregate  `physically_active_7d` by calculating its mean within each grade and gender
 # 2) create a plot showing the average number of physically active days
@@ -69,19 +65,14 @@ ft_1
 # no one correct way to do this
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 
-ag_yrbss
 ag_yrbss<- aggregate(physically_active_7d ~ Grade + Gender, data = yrbss, FUN = mean)
-ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d), color = Gender) + 
+str(ag_yrbss)
+ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d, color=Gender, group=Gender)) + 
   geom_line(show.legend = TRUE) +
   labs(
     title = "Physical activity by Grade and Gender",
   )
 
-
-aggregate( |>
-  ggplot(aes(xxx)) + 
-  geom_line()
-...
 
 
 # Create a plot that shows the relationship betwen physical activity and bmi
