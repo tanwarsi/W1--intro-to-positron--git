@@ -84,8 +84,9 @@ head(yrbss2)
 ggplot(yrbss2, aes(x=physically_active_7d, y= BMI)) + 
   geom_line(stat = "summary", fun = "mean")+
   labs(
-    title = "Mean BMI and Days Physicall Active",
-    y= "Mean BMI"
+    title = "Mean BMI and Days Physically Active for Grade 12 Girls",
+    y= "Mean BMI",
+    x= "Days Physically Active (In the Past Week)"
   )
 
 # Push your completed code to your GitHub repository
