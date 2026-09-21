@@ -74,7 +74,7 @@ ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d, color=Gender, group=Gende
     y= "Mean Days Physically Active in the Past Week"
   )
 
-# Create a plot that shows the relationship betwen physical activity and bmi
+# Create a plot that shows the relationship between physical activity and BMI
 # among female students in grade 12 
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 yrbss2 <- mutate(yrbss, BMI = height/weight)
