@@ -30,8 +30,14 @@ library(tidyverse)
 install.packages("flextable")
 library(flextable)
 
+yrbss <- yrbss %>%
+    mutate(gender = recode(gender, female = 'Female', male= 'Male'), grade = recode(grade, other = 'Other'))
+
+
 yrbss$Grade <- yrbss$grade
 yrbss$Gender <- yrbss$gender
+
+
 
 z <- summarizor(
   yrbss[c("Grade", "Gender")],
