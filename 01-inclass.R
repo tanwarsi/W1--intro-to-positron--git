@@ -71,22 +71,21 @@ ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d, color=Gender, group=Gende
   geom_line(show.legend = TRUE) +
   labs(
     title = "Physical activity by Grade and Gender",
+    y= "Mean Days Physically Active in the Past Week"
   )
-
-
 
 # Create a plot that shows the relationship betwen physical activity and bmi
 # among female students in grade 12 
 # Ensure that the figure is clearly labeled and includes an appropriate legend
-yrbss<-
 yrbss2 <- mutate(yrbss, BMI = height/weight)
 yrbss2 <- filter(yrbss2, gender== "Female", grade==12)
+head(yrbss2)
 
-
-ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d), color = Gender) + 
-  geom_line(show.legend = TRUE) +
+ggplot(yrbss2, aes(x=physically_active_7d, y= BMI)) + 
+  geom_line(stat = "summary", fun = "mean")+
   labs(
-    title = "Physical activity by Grade and Gender",
+    title = "Mean BMI and Days Physicall Active",
+    y= "Mean BMI"
   )
 
 # Push your completed code to your GitHub repository
