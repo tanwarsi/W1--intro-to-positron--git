@@ -35,9 +35,11 @@ library(flextable)
 yrbss$gender[yrbss$gender == "female"] <- "Female"
 yrbss$gender[yrbss$gender == "male"] <- "Male"
 yrbss$grade[yrbss$grade == "other"] <- "Other"
-factor(sort(yrbss$grade))
 
-yrbss <- factor(yrbss, levels=c("9","10","11","12","Other", "Missing"))
+yrbss$grade <- factor(
+  yrbss$grade,
+  levels = c("9", "10", "11", "12", "Other", "Missing")
+)
 
 
 yrbss$Grade <- yrbss$grade
@@ -48,7 +50,6 @@ z <- summarizor(
   overall_label = NULL,
 )
 z
-?summarizor()
 ft_1 <- as_flextable(z, groups_arrange= TRUE) 
 ft_1
 
@@ -68,7 +69,6 @@ ft_1
 # no one correct way to do this
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 
-?aggregate
 ag_yrbss
 ag_yrbss<- aggregate(physically_active_7d ~ Grade + Gender, data = yrbss, FUN = mean)
 ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d), color = Gender) + 
@@ -89,7 +89,13 @@ aggregate( |>
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 yrbss<-
 yrbss2 <- mutate(yrbss, BMI = height/weight)
+yrbss2 <- filter(yrbss2, gender== "Female", grade==12)
 
-head(yrbss2)
+
+ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d), color = Gender) + 
+  geom_line(show.legend = TRUE) +
+  labs(
+    title = "Physical activity by Grade and Gender",
+  )
 
 # Push your completed code to your GitHub repository
