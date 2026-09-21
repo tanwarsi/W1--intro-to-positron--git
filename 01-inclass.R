@@ -36,11 +36,19 @@ yrbss$Gender <- yrbss$gender
 
 z <- summarizor(
   yrbss[c("Grade", "Gender")],
-  overall_label = NULL
+  overall_label = NULL,
 )
 z
-ft_1 <- as_flextable(z) 
+?summarizor()
+ft_1 <- as_flextable(z, groups_arrange= TRUE) 
 ft_1
+
+ft_1 %>% 
+  rename(Other = other)
+
+
+
+
 
 
 # To understand the pattern of physical activity by grade and gender,
@@ -53,7 +61,8 @@ ft_1
 # no one correct way to do this
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 
-aggregate(xxx) |>
+aggregate()
+aggregate( |>
   ggplot(aes(xxx)) + 
   geom_line()
 ...
