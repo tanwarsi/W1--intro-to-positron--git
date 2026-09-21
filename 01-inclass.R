@@ -13,6 +13,7 @@
 
 install.packages("openintro")
 library(openintro)
+#hello2
 
 # Other useful packages
 install.packages("tidyverse")
