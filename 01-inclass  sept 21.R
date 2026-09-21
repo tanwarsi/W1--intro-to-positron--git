@@ -13,7 +13,7 @@
 
 install.packages("openintro")
 library(openintro)
-#hello
+#initital
 
 # Other useful packages
 install.packages("tidyverse")
@@ -26,36 +26,19 @@ library(tidyverse)
 # Grade and Gender
 # Modify the code below such that the grade shows in increasing order
 # and all category labels start with a capital letter
-#change2
 
 install.packages("flextable")
 library(flextable)
-
-
-yrbss$gender[yrbss$gender == "female"] <- "Female"
-yrbss$gender[yrbss$gender == "male"] <- "Male"
-yrbss$grade[yrbss$grade == "other"] <- "Other"
-factor(sort(yrbss$grade))
-
-yrbss <- factor(yrbss, levels=c("9","10","11","12","Other", "Missing"))
-
 
 yrbss$Grade <- yrbss$grade
 yrbss$Gender <- yrbss$gender
 
 z <- summarizor(
   yrbss[c("Grade", "Gender")],
-  overall_label = NULL,
+  overall_label = NULL
 )
-z
-?summarizor()
-ft_1 <- as_flextable(z, groups_arrange= TRUE) 
+ft_1 <- as_flextable(z) 
 ft_1
-
-
-
-
-
 
 
 # To understand the pattern of physical activity by grade and gender,
@@ -68,8 +51,7 @@ ft_1
 # no one correct way to do this
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 
-aggregate()
-aggregate( |>
+aggregate(xxx) |>
   ggplot(aes(xxx)) + 
   geom_line()
 ...
