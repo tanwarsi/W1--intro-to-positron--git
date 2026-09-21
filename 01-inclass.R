@@ -13,7 +13,7 @@
 
 install.packages("openintro")
 library(openintro)
-#hello2
+#hello
 
 # Other useful packages
 install.packages("tidyverse")
@@ -26,6 +26,7 @@ library(tidyverse)
 # Grade and Gender
 # Modify the code below such that the grade shows in increasing order
 # and all category labels start with a capital letter
+#change2
 
 install.packages("flextable")
 library(flextable)
@@ -37,6 +38,7 @@ z <- summarizor(
   yrbss[c("Grade", "Gender")],
   overall_label = NULL
 )
+z
 ft_1 <- as_flextable(z) 
 ft_1
 
