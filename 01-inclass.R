@@ -68,7 +68,13 @@ ft_1
 # no one correct way to do this
 # Ensure that the figure is clearly labeled and includes an appropriate legend
 
-aggregate()
+?aggregate
+ag_yrbss
+ag_yrbss<- aggregate(physically_active_7d ~ Grade + Gender, data = yrbss, FUN = mean)
+ggplot(ag_yrbss, aes(x=Grade, y= physically_active_7d), group =Gender, color = Gender) + 
+  geom_line()
+
+
 aggregate( |>
   ggplot(aes(xxx)) + 
   geom_line()
